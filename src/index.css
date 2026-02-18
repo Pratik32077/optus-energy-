@@ -1,0 +1,289 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Sora:wght@400;500;600;700;800&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 220 14% 97%;
+    --foreground: 220 20% 6%;
+    --card: 0 0% 100%;
+    --card-foreground: 220 20% 6%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 220 20% 6%;
+    --primary: 220 20% 6%;
+    --primary-foreground: 0 0% 98%;
+    --secondary: 220 14% 93%;
+    --secondary-foreground: 220 20% 6%;
+    --muted: 220 14% 93%;
+    --muted-foreground: 220 8% 46%;
+    --accent: 226 91% 60%;
+    --accent-foreground: 0 0% 100%;
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 220 13% 88%;
+    --input: 220 13% 88%;
+    --ring: 226 91% 60%;
+    --radius: 1.25rem;
+  }
+
+  .dark {
+    --background: 220 20% 6%;
+    --foreground: 0 0% 98%;
+    --card: 220 18% 10%;
+    --card-foreground: 0 0% 98%;
+    --popover: 220 18% 10%;
+    --popover-foreground: 0 0% 98%;
+    --primary: 0 0% 98%;
+    --primary-foreground: 220 20% 6%;
+    --secondary: 220 15% 15%;
+    --secondary-foreground: 0 0% 98%;
+    --muted: 220 15% 15%;
+    --muted-foreground: 220 10% 60%;
+    --accent: 226 91% 60%;
+    --accent-foreground: 0 0% 100%;
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 220 15% 18%;
+    --input: 220 15% 18%;
+    --ring: 226 91% 60%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-background text-foreground antialiased;
+    font-family: 'Inter', system-ui, sans-serif;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    font-family: 'Sora', system-ui, sans-serif;
+  }
+}
+
+@layer components {
+  .text-gradient {
+    @apply bg-clip-text text-transparent bg-gradient-to-r from-[#3B6CF6] to-[#5B8CF7];
+  }
+
+  .card-shadow {
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05),
+      0 10px 15px -3px rgba(0, 0, 0, 0.08),
+      0 20px 40px -10px rgba(0, 0, 0, 0.1);
+  }
+
+  .card-shadow-hover {
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.08),
+      0 20px 25px -5px rgba(0, 0, 0, 0.1),
+      0 30px 60px -15px rgba(0, 0, 0, 0.15);
+    transform: translateY(-4px);
+  }
+
+  .section-light {
+    @apply bg-[#F6F7F9];
+  }
+
+  .section-dark {
+    @apply bg-[#0B0D10];
+  }
+
+  .micro-label {
+    @apply text-xs font-semibold uppercase tracking-[0.2em] text-optus-blue;
+    letter-spacing: 0.2em;
+  }
+
+  .heading-display {
+    @apply font-bold uppercase tracking-tight;
+    font-family: 'Sora', system-ui, sans-serif;
+    letter-spacing: -0.02em;
+  }
+
+  .btn-primary {
+    @apply inline-flex items-center justify-center px-8 py-4 text-sm font-semibold text-white bg-optus-blue rounded-full transition-all duration-300;
+    background: linear-gradient(135deg, #3B6CF6 0%, #2A5BE5 100%);
+    box-shadow: 0 4px 14px rgba(59, 108, 246, 0.4);
+  }
+
+  .btn-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(59, 108, 246, 0.5);
+  }
+
+  .btn-secondary {
+    @apply inline-flex items-center justify-center px-8 py-4 text-sm font-semibold text-optus-dark bg-white border border-gray-200 rounded-full transition-all duration-300;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+  }
+
+  .btn-secondary:hover {
+    background: #F6F7F9;
+    border-color: #3B6CF6;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  }
+
+  .image-card {
+    @apply overflow-hidden rounded-[28px];
+    box-shadow: 0 20px 50px -10px rgba(0, 0, 0, 0.15);
+  }
+
+  .image-card img {
+    @apply w-full h-full object-cover;
+  }
+
+  .full-bleed-image {
+    @apply absolute inset-0 w-full h-full;
+  }
+
+  .full-bleed-image img {
+    @apply w-full h-full object-cover;
+  }
+
+  .gradient-overlay {
+    @apply absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent;
+  }
+
+  /* Enhanced card styles */
+  .feature-card {
+    @apply relative overflow-hidden;
+  }
+
+  .feature-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: linear-gradient(90deg, #3B6CF6, #5B8CF7);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+  }
+
+  .feature-card:hover::before {
+    opacity: 1;
+  }
+
+  /* Stat card enhancement */
+  .stat-card {
+    @apply relative;
+  }
+
+  .stat-card::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background: linear-gradient(90deg, #3B6CF6, #5B8CF7);
+    border-radius: 0 0 28px 28px;
+  }
+
+  /* Navigation enhancement */
+  .nav-link {
+    @apply relative text-sm font-medium text-optus-gray transition-colors duration-200;
+  }
+
+  .nav-link::after {
+    content: '';
+    position: absolute;
+    bottom: -4px;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: #3B6CF6;
+    transition: width 0.3s ease;
+  }
+
+  .nav-link:hover::after,
+  .nav-link.active::after {
+    width: 100%;
+  }
+
+  .nav-link:hover,
+  .nav-link.active {
+    color: #0B0D10;
+  }
+}
+
+@layer utilities {
+  .animate-fade-up {
+    animation: fadeUp 0.8s ease-out forwards;
+  }
+
+  .animate-fade-in {
+    animation: fadeIn 0.6s ease-out forwards;
+  }
+
+  .animate-slide-in-left {
+    animation: slideInLeft 0.8s ease-out forwards;
+  }
+
+  .animate-slide-in-right {
+    animation: slideInRight 0.8s ease-out forwards;
+  }
+
+  .text-balance {
+    text-wrap: balance;
+  }
+
+  @keyframes fadeUp {
+    from {
+      opacity: 0;
+      transform: translateY(24px);
+    }
+
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+    }
+
+    to {
+      opacity: 1;
+    }
+  }
+
+  @keyframes slideInLeft {
+    from {
+      opacity: 0;
+      transform: translateX(-40px);
+    }
+
+    to {
+      opacity: 1;
+      transform: translateX(0);
+    }
+  }
+
+  @keyframes slideInRight {
+    from {
+      opacity: 0;
+      transform: translateX(40px);
+    }
+
+    to {
+      opacity: 1;
+      transform: translateX(0);
+    }
+  }
+}
