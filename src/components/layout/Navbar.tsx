@@ -25,8 +25,10 @@ export function Navbar() {
   }, []);
 
   useEffect(() => {
-    setIsMobileMenuOpen(false);
-  }, [location.pathname]);
+    if (isMobileMenuOpen) {
+      setIsMobileMenuOpen(false);
+    }
+  }, [location.pathname, isMobileMenuOpen]);
 
   const isActive = (href: string) => {
     if (href === '/') {

@@ -6,12 +6,16 @@ import { Services } from '@/pages/Services';
 import { Projects } from '@/pages/Projects';
 import { Procedures } from '@/pages/Procedures';
 import { Contact } from '@/pages/Contact';
+import { ScrollToTop } from '@/components/ScrollToTop';
+
 
 function App() {
   return (
     <BrowserRouter>
       <Layout>
+        <ScrollToTop />
         <Routes>
+
           <Route path="/" element={<Home />} />
           <Route path="/about" element={<About />} />
           <Route path="/services" element={<Services />} />
