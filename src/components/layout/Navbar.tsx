@@ -49,7 +49,7 @@ export function Navbar() {
           {/* Logo */}
           <Link to="/" className="flex items-center group" onClick={() => setIsMobileMenuOpen(false)}>
             <img
-              src="/images/optusenergy-logo-tRBYRgNpB4t3a8js.avif"   // put your logo path here
+              src="/images/Optus logo.png"   // put your logo path here
               alt="Optus Energy Logo"
               className="h-10 md:h-12 w-auto object-contain transition-transform duration-300 group-hover:scale-105"
             />
